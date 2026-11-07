@@ -190,7 +190,9 @@ tfoot td{font-weight:650;border-top:1px solid var(--line);border-bottom:0}
 .pcard.on{border-color:var(--accent);background:var(--accent-soft)}
 .pcard b{display:block}
 .pcard small{color:var(--muted)}
-.plist{display:flex;flex-direction:column;gap:8px;max-height:calc(100vh - 290px);overflow:auto}
+.plist{display:flex;flex-direction:column;gap:8px;max-height:388px;overflow:auto}
+.split .tbl-wrap{max-height:460px}
+.pcard{min-height:90px}
 
 /* calculator */
 .calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
@@ -255,7 +257,12 @@ tfoot td{font-weight:650;border-top:1px solid var(--line);border-bottom:0}
  .main.fit .split>*{min-height:0}
  .main.fit .card.pl{display:flex;flex-direction:column;height:100%}
  .main.fit .card.pl>*{flex:none}
- .main.fit .plist{flex:1;min-height:0;max-height:none}
+ .main.fit .split{min-height:0;overflow:hidden;align-items:start}
+ .main.fit .split>div:last-child{height:100%;min-height:0;overflow:auto}
+ .main.fit .split .fit-page{min-height:0}
+ .main.fit .card.pl{height:auto;max-height:100%}
+ .main.fit .plist{flex:1;min-height:0;max-height:388px}
+ .main.fit .split .grow>.tbl-wrap{min-height:150px;max-height:none}
 }
 @media (min-width:601px) and (max-width:900px){.main.fit .split{grid-template-columns:1fr;grid-template-rows:minmax(170px,36%) minmax(0,1fr)}}
 @media (min-width:601px) and (max-height:700px){.fit-page .card.stat{padding:12px 16px;gap:2px}.fit-page .big.sm{font-size:19px}.fit-page .big{font-size:24px}.fit-page{gap:14px}.main.fit .top{padding:10px 0 8px}.main.fit .banner{padding:6px 12px;margin-bottom:8px}.main.fit .card.grow{padding:14px}}
