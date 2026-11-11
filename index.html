@@ -13,8 +13,8 @@
   --accent:#2b5fe6;--accent-hi:#5b8cff;--accent-soft:rgba(43,95,230,.13);--accent-fg:#ffffff;--accent-glow:rgba(43,95,230,.32);
   --good:#12875a;--good-soft:rgba(24,160,100,.16);--warn:#a86400;--warn-soft:rgba(240,160,30,.22);--bad:#cc2d3e;--bad-soft:rgba(214,60,74,.15);
   --track:rgba(110,126,165,.2);--track2:rgba(110,126,165,.45);
-  --glass:rgba(255,255,255,.52);--glass-strong:rgba(255,255,255,.76);--glass-border:rgba(255,255,255,.72);
-  --field:rgba(205,214,232,.5);--btn:rgba(255,255,255,.66);--trough:rgba(140,156,196,.16);--hover:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.34);--glass-strong:rgba(255,255,255,.56);--glass-border:rgba(255,255,255,.7);
+  --field:rgba(205,214,232,.38);--btn:rgba(255,255,255,.5);--trough:rgba(140,156,196,.16);--hover:rgba(255,255,255,.45);
   --nu-hi:rgba(255,255,255,.95);--nu-lo:rgba(130,146,184,.46);
   --sh:9px 9px 22px var(--nu-lo),-8px -8px 20px var(--nu-hi);
   --sh-sm:5px 5px 12px var(--nu-lo),-4px -4px 10px var(--nu-hi);
@@ -33,8 +33,8 @@
     --accent:#7aa2ff;--accent-hi:#9bbcff;--accent-soft:rgba(122,162,255,.18);--accent-fg:#08102a;--accent-glow:rgba(122,162,255,.3);
     --good:#3fcf8e;--good-soft:rgba(63,207,142,.16);--warn:#f0b04a;--warn-soft:rgba(240,176,74,.17);--bad:#ff7a86;--bad-soft:rgba(255,122,134,.16);
     --track:rgba(255,255,255,.1);--track2:rgba(255,255,255,.28);
-    --glass:rgba(36,43,64,.5);--glass-strong:rgba(30,36,56,.8);--glass-border:rgba(255,255,255,.1);
-    --field:rgba(8,11,22,.45);--btn:rgba(54,62,90,.62);--trough:rgba(6,8,18,.34);--hover:rgba(255,255,255,.05);
+    --glass:rgba(36,43,64,.34);--glass-strong:rgba(30,36,56,.58);--glass-border:rgba(255,255,255,.11);
+    --field:rgba(8,11,22,.34);--btn:rgba(54,62,90,.46);--trough:rgba(6,8,18,.34);--hover:rgba(255,255,255,.05);
     --nu-hi:rgba(255,255,255,.055);--nu-lo:rgba(0,0,0,.5);
     --shadow:0 12px 32px rgba(0,0,0,.5);
     --blob1:rgba(60,90,200,.38);--blob2:rgba(120,60,190,.32);--blob3:rgba(20,140,130,.3);--blob4:rgba(200,100,50,.2);
@@ -47,8 +47,8 @@
   --accent:#7aa2ff;--accent-hi:#9bbcff;--accent-soft:rgba(122,162,255,.18);--accent-fg:#08102a;--accent-glow:rgba(122,162,255,.3);
   --good:#3fcf8e;--good-soft:rgba(63,207,142,.16);--warn:#f0b04a;--warn-soft:rgba(240,176,74,.17);--bad:#ff7a86;--bad-soft:rgba(255,122,134,.16);
   --track:rgba(255,255,255,.1);--track2:rgba(255,255,255,.28);
-  --glass:rgba(36,43,64,.5);--glass-strong:rgba(30,36,56,.8);--glass-border:rgba(255,255,255,.1);
-  --field:rgba(8,11,22,.45);--btn:rgba(54,62,90,.62);--trough:rgba(6,8,18,.34);--hover:rgba(255,255,255,.05);
+  --glass:rgba(36,43,64,.34);--glass-strong:rgba(30,36,56,.58);--glass-border:rgba(255,255,255,.11);
+  --field:rgba(8,11,22,.34);--btn:rgba(54,62,90,.46);--trough:rgba(6,8,18,.34);--hover:rgba(255,255,255,.05);
   --nu-hi:rgba(255,255,255,.055);--nu-lo:rgba(0,0,0,.5);
   --shadow:0 12px 32px rgba(0,0,0,.5);
   --blob1:rgba(60,90,200,.38);--blob2:rgba(120,60,190,.32);--blob3:rgba(20,140,130,.3);--blob4:rgba(200,100,50,.2);
@@ -77,7 +77,13 @@ h1,h2,h3,p{margin:0}
 .lk-bottom{width:min(540px,100%);display:flex;flex-direction:column;gap:12px}
 .lg{background:var(--lg-bg);border:1px solid var(--lg-bd);-webkit-backdrop-filter:blur(28px) saturate(1.6);backdrop-filter:blur(28px) saturate(1.6);border-radius:26px;padding:14px 16px;min-width:0;box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 12px 30px rgba(0,0,0,.16)}
 .lg h4{margin:0 0 8px;font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;opacity:.8}
-.lk-pair{display:grid;grid-template-columns:116px minmax(0,1fr);gap:14px}
+.clk-row{display:grid;place-items:center;padding:12px}
+.lk-right .nc-h{padding-right:50px;min-height:40px}
+.lk-right{display:flex;flex-direction:column;gap:10px;align-self:start;min-width:0}
+.nc-ic.k{background:linear-gradient(145deg,#34c759,#12875a);font-weight:700;font-size:18px}
+.nc-head.static{cursor:default}
+.nc-card.kcur .nc-body{padding-top:0}
+.nc-card.kcur .kurs{border-top:1px solid rgba(255,255,255,.2);padding-top:10px}
 /* cuaca */
 .wx{display:flex;flex-direction:column;gap:6px}
 .wx-loc{display:flex;align-items:center;gap:6px;font-weight:600;font-size:13px;min-width:0}
@@ -92,7 +98,7 @@ h1,h2,h3,p{margin:0}
 .wx-aqi{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:600;border-top:1px solid rgba(255,255,255,.22);padding-top:8px;margin-top:2px}
 .dot{width:9px;height:9px;border-radius:50%;flex:none}
 /* jam analog */
-.clk{border-radius:50%;padding:6px;display:grid;place-items:center;aspect-ratio:1;width:116px}
+.clk{display:grid;place-items:center;aspect-ratio:1;width:min(150px,100%)}
 .aclock{width:100%;height:100%;display:block}
 .aclock .tk{stroke:rgba(255,255,255,.55);stroke-width:.8;stroke-linecap:round}
 .aclock .tk.M{stroke:#fff;stroke-width:1.5}
@@ -162,13 +168,13 @@ h1,h2,h3,p{margin:0}
 .shake{animation:shake .4s}
 @keyframes shake{20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
 @media (prefers-reduced-motion:reduce){.shake{animation:none}.nc-chev{transition:none}}
-@media (max-width:1100px){.lk{grid-template-columns:minmax(250px,300px) minmax(0,1fr)}.lk-right{display:none}}
+@media (max-width:1100px){.lk{grid-template-columns:minmax(250px,300px) minmax(0,1fr)}.lk-left{grid-row:1/3}.lk-center{grid-column:2}.lk-right{grid-column:2}}
 @media (max-width:820px){
   .lk{grid-template-columns:1fr;gap:20px}
   .lk-center{order:1;justify-content:flex-start;gap:20px}
-  .lk-left{order:2;align-self:stretch;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
-  .lk-left .lk-pair{grid-template-columns:104px minmax(0,1fr)}
-  .clk{width:104px}
+  .lk-left{order:3;align-self:stretch;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+  .lk-left,.lk-center,.lk-right{grid-row:auto;grid-column:auto}
+  .lk-right{order:2}
   .lk-top{margin-top:30px}
 }
 @media (max-width:480px){.unlock{border-radius:28px}.pw{flex-basis:100%}}
@@ -177,6 +183,7 @@ h1,h2,h3,p{margin:0}
 .shell{display:grid;grid-template-columns:228px minmax(0,1fr);height:100%}
 .side{background:var(--surface);border-right:1px solid var(--line);padding:18px 12px;display:flex;flex-direction:column;gap:4px;overflow:auto}
 .brand{display:flex;align-items:center;gap:10px;padding:4px 10px 16px;font-weight:700;font-size:16px;letter-spacing:-.01em}
+.brand .bt{display:flex;flex-direction:column;min-width:0;line-height:1.2}.brand .bt small{font-size:10.5px;font-weight:500;color:var(--muted);letter-spacing:0;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .brand i{width:30px;height:30px;border-radius:9px;background:var(--accent);color:var(--accent-fg);display:grid;place-items:center;font-style:normal;font-size:13px;font-weight:700}
 .nav{display:flex;align-items:center;gap:11px;border:0;background:none;text-align:left;padding:9px 10px;border-radius:11px;cursor:pointer;color:var(--muted);font-weight:500;white-space:nowrap}
 .nav svg{width:19px;height:19px;flex:none}
@@ -293,6 +300,24 @@ tfoot td{font-weight:650;border-top:1px solid var(--line);border-bottom:0}
 .addb:hover{color:var(--accent);border-color:var(--accent)}
 
 /* products split */
+.btn svg{width:16px;height:16px;vertical-align:-3px;margin-right:2px}
+.pdots{display:flex;flex-wrap:wrap;gap:6px}
+.pdot{width:26px;height:26px;border-radius:50%;border:0;cursor:pointer;background:var(--c);color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center;box-shadow:var(--sh-xs);padding:0;transition:transform .15s}
+.pdot:hover{transform:scale(1.12)}
+.pdot:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.kc.flash{animation:flash 2.2s ease-out}
+@keyframes flash{0%,60%{box-shadow:0 0 0 3px var(--accent),0 0 22px var(--accent-glow)}100%{box-shadow:none}}
+.prodpage>.pd{flex:1 1 auto;min-height:0}
+.pk{display:grid;grid-template-columns:minmax(230px,300px) minmax(0,1fr);gap:18px;align-items:stretch;padding:14px 16px}
+.pk-l{display:flex;flex-direction:column;gap:10px;min-width:0}
+.pk-l .card-h{margin-bottom:0}
+.phs{display:flex;gap:12px;overflow-x:auto;overflow-y:hidden;padding:4px 8px 12px;align-items:stretch;min-width:0}
+.phs .pcard{flex:0 0 232px;min-height:104px}
+.pd{display:grid;grid-template-columns:minmax(210px,270px) minmax(0,1fr);gap:18px;align-items:stretch;min-height:0}
+.pd-l{display:flex;flex-direction:column;gap:14px;min-height:0;overflow:auto;padding:4px 8px 10px 4px;margin:-4px -8px -10px -4px}
+.pd .card.grow{display:flex;flex-direction:column;min-height:0}
+.pd .grow>.tbl-wrap{flex:1;min-height:120px;max-height:none;overflow:auto}
+@media (max-width:900px){.pk,.pd{grid-template-columns:1fr}.pd-l{flex-direction:row;flex-wrap:wrap;overflow:visible}.pd-l .stat{flex:1 1 160px}.prodpage .pd .grow>.tbl-wrap{max-height:420px}}
 .split{display:grid;grid-template-columns:minmax(260px,340px) minmax(0,1fr);gap:14px;align-items:start}
 .pcard{padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);cursor:pointer;display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
 .pcard.on{border-color:var(--accent);background:var(--accent-soft)}
@@ -476,13 +501,8 @@ td,th{border-bottom-color:var(--line)}
   <button type="button" class="lk-theme" id="lkTheme" data-act="theme"></button>
   <div class="lk">
     <aside class="lk-left" aria-label="Informasi harian">
-      <section class="lg wx" aria-label="Cuaca dan kualitas udara">
-        <div class="wx-loc"><span id="wCity">Mencari lokasi…</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4 4 11l7 2 2 7z" fill="currentColor"/></svg><small id="wApprox" hidden>lokasi default</small></div>
-        <div class="wx-main"><div class="wx-temp" id="wTemp">--°</div><div class="wx-side"><div class="wx-cond" id="wCond"></div><div id="wHL">&nbsp;</div></div></div>
-        <div class="wx-aqi" id="wAqi"><span class="dot" style="background:#8e8e93"></span>AQI belum tersedia</div>
-      </section>
-      <div class="lk-pair">
-        <div class="lg clk" role="img" aria-label="Jam analog">
+      <section class="lg clk-row" role="img" aria-label="Jam analog">
+        <div class="clk">
           <svg class="aclock" viewBox="-50 -50 100 100" aria-hidden="true">
             <g id="aTicks"></g>
             <text class="an" x="0" y="-34">12</text><text class="an" x="34" y="0">3</text><text class="an" x="0" y="34">6</text><text class="an" x="-34" y="0">9</text>
@@ -492,15 +512,17 @@ td,th{border-bottom-color:var(--line)}
             <circle class="hub" r="2.6"/><circle class="hub2" r="1.1"/>
           </svg>
         </div>
-        <section class="lg" aria-label="Kurs harian"><h4>Kurs harian</h4><div class="kurs" id="lKurs"></div></section>
-      </div>
+      </section>
+      <section class="lg wx" aria-label="Cuaca dan kualitas udara">
+        <div class="wx-loc"><span id="wCity">Mencari lokasi…</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4 4 11l7 2 2 7z" fill="currentColor"/></svg><small id="wApprox" hidden>lokasi default</small></div>
+        <div class="wx-main"><div class="wx-temp" id="wTemp">--°</div><div class="wx-side"><div class="wx-cond" id="wCond"></div><div id="wHL">&nbsp;</div></div></div>
+        <div class="wx-aqi" id="wAqi"><span class="dot" style="background:#8e8e93"></span>AQI belum tersedia</div>
+      </section>
       <section class="lg" aria-label="Kalender"><div id="lCal"></div></section>
     </aside>
     <section class="lk-center">
       <div class="lk-top"><div class="lk-date" id="lDate"></div><div class="lk-time" id="lTime"></div></div>
       <div class="lk-bottom">
-        <div class="nc-h"><span>Pusat Notifikasi</span><button type="button" class="nc-close" data-act="ncClear" aria-label="Ciutkan semua notifikasi" id="ncClose"></button></div>
-        <div id="ncList"></div>
         <form class="unlock" id="unlockForm" autocomplete="off">
           <div class="avatar" aria-hidden="true">AI</div>
           <div class="who"><strong>Adit Indra</strong><div id="lockMsg" role="status"></div></div>
@@ -508,7 +530,11 @@ td,th{border-bottom-color:var(--line)}
         </form>
       </div>
     </section>
-    <div class="lk-right" aria-hidden="true"></div>
+    <aside class="lk-right" aria-label="Pusat notifikasi">
+      <div class="nc-h"><span>Pusat Notifikasi</span><button type="button" class="nc-close" data-act="ncClear" aria-label="Ciutkan semua notifikasi" id="ncClose"></button></div>
+      <section class="nc-card kcur" aria-label="Kurs harian"><div class="nc-head static"><span class="nc-ic k">$</span><span class="nc-txt"><span class="nc-row"><b>Kurs harian</b><small>terhadap IDR</small></span></span></div><div class="nc-body"><div class="kurs" id="lKurs"></div></div></section>
+      <div id="ncList"></div>
+    </aside>
   </div>
 </div>
 
@@ -582,6 +608,9 @@ const STAGES=[
  {k:'win',l:'Win',p:100,act:'Customer mengirimkan PO',po:'PO sudah diterima',c:'#1fa465'},
  {k:'lost',l:'Lost',p:0,act:'Trial tidak berhasil; negosiasi tidak berhasil',po:'Peluang tidak berhasil',c:'#d63c4a'}];
 const STG=Object.fromEntries(STAGES.map(s=>[s.k,s]));
+const SGL={lead:'L',qualified:'Q',sample:'S',quotation:'P',negotiation:'N',win:'W',lost:'✕'};
+const pipeDots=cid=>{const r=S.pipeline.filter(p=>p.customerId===cid&&!p.archived);
+  return r.length?`<div class="pdots">${r.map(p=>{const g=STG[p.status]||STG.lead,t=g.l+' · '+p.product;return `<button type="button" class="pdot" data-act="goPipe" data-id="${p.id}" style="--c:${g.c}" title="${esc(t)}" aria-label="Buka pipeline: ${esc(t)}">${SGL[p.status]||'L'}</button>`}).join('')}</div>`:'<span class="muted">—</span>'};
 const PO_STATUS=["Haven't Invoice Yet",'Blanket PO','Hold','Tunggu Info','Other'];
 const SAMPLE_ST=[['trial','On trial'],['approved','Approved'],['failed','Failed']];
 const ACT_TYPES=['Visit','Call','Sample'];
@@ -613,7 +642,7 @@ function norm(d){const o=blank();
   o.products.forEach(p=>{p.cogs=N(p.cogs);p.principal=p.principal||''});
   o.pos.forEach(p=>{p.qty=N(p.qty);p.price=N(p.price)});
   o.activities.forEach(a=>{a.week=N(a.week);a.fy=N(a.fy)});
-  o.pipeline.forEach(p=>{p.qty=N(p.qty);p.value=N(p.value);p.price=(p.price===''||p.price===undefined)?(p.qty>0?Math.round(p.value/p.qty):''):N(p.price)});
+  o.pipeline.forEach(p=>{p.archived=p.archived===true||p.archived===1||/^(true|1)$/i.test(String(p.archived));p.qty=N(p.qty);p.value=N(p.value);p.price=(p.price===''||p.price===undefined)?(p.qty>0?Math.round(p.value/p.qty):''):N(p.price)});
   o.outstanding.forEach(p=>{p.qty=N(p.qty);p.price=N(p.price)});
   o.overdue.forEach(p=>p.amount=N(p.amount));
   o.todos.forEach(t=>t.done=(t.done===true||t.done==='TRUE'||t.done==='true'));
@@ -712,6 +741,7 @@ const ICON={
  sheet:'<rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M4 9h16M4 15h16M10 9v12"/>',
  edit:'<path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/>',
  trash:'<path d="M4 7h16M9 7V4.5h6V7M6.5 7l1 13h9l1-13M10 11v6M14 11v6"/>',
+ archive:'<path d="M4 5h16v4H4zM5.5 9v10h13V9M10 13h4"/>',
  sun:'<circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/>',
  moon:'<path d="M20 14.5A8 8 0 1 1 9.5 4 6.5 6.5 0 0 0 20 14.5z"/>',
  chev:'<path d="m6 9 6 6 6-6"/>',
@@ -723,7 +753,7 @@ const NAV=[['dash','Dashboard Utama'],['cust','Data Customer'],['prod','Data Pro
 const TITLES=Object.assign(Object.fromEntries(NAV),{budget:'Achievement Sales'});
 
 const ENTITIES=['PT','CV','Perorangan'];
-const fullName=c=>(c.entity&&c.entity!=='Perorangan'?c.entity+' ':'')+c.name;
+const fullName=c=>c.name+(c.entity&&c.entity!=='Perorangan'?', '+c.entity:'');
 const cn=id=>{const c=S.customers.find(x=>x.id===id);return c?fullName(c):'(customer dihapus)'};
 const custOpts=()=>S.customers.slice().sort((a,b)=>a.name.localeCompare(b.name,'id')).map(c=>[c.id,fullName(c)]);
 const sel=(name,opts,val,attrs='')=>`<select name="${name}" ${attrs}>${opts.map(o=>{const [v,l]=Array.isArray(o)?o:[o,o];return `<option value="${esc(v)}" ${String(v)===String(val)?'selected':''}>${esc(l)}</option>`}).join('')}</select>`;
@@ -831,8 +861,9 @@ function pageCust(){
      ${filterSel('cust.seg','Semua segmen',SEGMENTS,u.seg)}
      ${filterSel('cust.fin','Semua finansial',[['overdue','Overdue'],['no overdue','No overdue']],u.fin)}
      <select data-bind="cust.sort" id="cs" aria-label="Urutkan"><option value="az" ${u.sort==='az'?'selected':''}>Urut A–Z</option><option value="upd" ${u.sort==='upd'?'selected':''}>Terakhir diupdate</option></select></div>
-    <div class="tbl-wrap"><table><thead><tr><th>Customer</th><th>Status</th><th>Latest update</th><th>Finansial</th><th></th></tr></thead><tbody>
+    <div class="tbl-wrap"><table><thead><tr><th>Customer</th><th>Status</th><th>Pipeline</th><th>Latest update</th><th>Finansial</th><th></th></tr></thead><tbody>
     ${rows.map(c=>`<tr><td>${custCell(c.id)}<div class="muted">${esc(c.segment)}</div></td><td><span class="pill ${c.status==='existing'?'acc':''}">${c.status==='existing'?'Existing':'Prospecting'}</span></td>
+     <td>${pipeDots(c.id)}</td>
      <td><div class="clamp">${esc(lastLine(c.updates))||'<span class="muted">—</span>'}</div><div class="muted">${c.updatedAt?fdate(c.updatedAt):''}</div></td>
      <td>${c.status==='existing'?`<span class="pill ${c.finansial==='overdue'?'bad':'good'}">${c.finansial==='overdue'?'Overdue':'No overdue'}</span>`:'<span class="muted">—</span>'}</td>${rowTools('cust',c.id)}</tr>`).join('')}
     </tbody></table>${rows.length?'':empty('Belum ada customer yang cocok.')}</div></div></div>`}
@@ -861,18 +892,18 @@ function pageProd(){
   const u=UI.prod;let list=S.products.filter(p=>{const q=u.q.toLowerCase();return p.name.toLowerCase().includes(q)||String(p.principal||'').toLowerCase().includes(q)}).map(p=>Object.assign({},p,{st:pStats(p.id)}));
   list.sort(u.sort==='value'?(a,b)=>b.st.val-a.st.val:u.sort==='qty'?(a,b)=>b.st.qty-a.st.qty:(a,b)=>a.name.localeCompare(b.name,'id'));
   if(!S.products.find(p=>p.id===u.sel))u.sel=list.length?list[0].id:null;
-  return `<div class="split"><div class="card pl"><div class="card-h"><h3>Produk</h3><button class="btn primary sm" data-act="add" data-t="prod">+ Tambah produk</button></div>
-    <div class="stack" style="gap:10px;margin-bottom:12px"><input type="search" id="pq" data-bind="prod.q" value="${esc(u.q)}" placeholder="Cari nama produk atau principal" aria-label="Cari produk">
+  return `<div class="fit-page prodpage"><div class="card pk"><div class="pk-l"><div class="card-h"><h3>Produk</h3><button class="btn primary sm" data-act="add" data-t="prod">+ Tambah produk</button></div>
+    <input type="search" id="pq" data-bind="prod.q" value="${esc(u.q)}" placeholder="Cari nama produk atau principal" aria-label="Cari produk">
     <select data-bind="prod.sort" id="ps" aria-label="Urutkan"><option value="name" ${u.sort==='name'?'selected':''}>Urut nama produk</option><option value="value" ${u.sort==='value'?'selected':''}>Total value tertinggi</option><option value="qty" ${u.sort==='qty'?'selected':''}>Total qty tertinggi</option></select></div>
-    <div class="plist">${list.map(p=>`<div class="pcard ${p.id===u.sel?'on':''}" data-act="selProd" data-id="${p.id}" tabindex="0" role="button"><div style="min-width:0"><b>${esc(p.name)}</b>${p.principal?`<small style="display:block">${esc(p.principal)}</small>`:''}<small>${rp(p.st.val)} · ${nf(p.st.qty)} kg</small></div><div class="row" style="gap:4px;flex:none;flex-wrap:nowrap">${miniTools('prod',p.id)}</div></div>`).join('')||empty('Belum ada produk.')}</div></div>
-   <div>${u.sel?prodDetail(u.sel):`<div class="card">${empty('Pilih atau tambahkan produk untuk melihat detail.')}</div>`}</div></div>`}
+    <div class="phs" data-keepscroll="prodlist">${list.map(p=>`<div class="pcard ${p.id===u.sel?'on':''}" data-act="selProd" data-id="${p.id}" tabindex="0" role="button"><div style="min-width:0"><b>${esc(p.name)}</b>${p.principal?`<small style="display:block">${esc(p.principal)}</small>`:''}<small>${rp(p.st.val)} · ${nf(p.st.qty)} kg</small></div><div class="row" style="gap:4px;flex:none;flex-wrap:nowrap">${miniTools('prod',p.id)}</div></div>`).join('')||empty('Belum ada produk.')}</div></div>
+   ${u.sel?prodDetail(u.sel):`<div class="card">${empty('Pilih atau tambahkan produk untuk melihat detail.')}</div>`}</div>`}
 function prodDetail(pid){
   const p=S.products.find(x=>x.id===pid),all=S.pos.filter(x=>x.productId===pid),st=pStats(pid),f=UI.po;
   const months=[...new Set(all.map(x=>String(x.date).slice(0,7)))].sort().reverse();
   let rows=all.filter(x=>(!f.cust||x.customerId===f.cust)&&(!f.month||String(x.date).slice(0,7)===f.month));
   rows=sortBy(rows,f.sort,{cust:r=>cn(r.customerId),date:r=>String(r.date),qty:r=>N(r.qty),price:r=>N(r.price),total:r=>amt(r)});
   const mlab=m=>MON[+m.slice(5,7)-1]+' '+m.slice(0,4);
-  return `<div class="fit-page"><div class="grid g3"><div class="card stat"><span class="lbl">Total sales value</span><span class="big sm">${rp(st.val)}</span></div><div class="card stat"><span class="lbl">Total sales qty</span><span class="big sm">${nf(st.qty)} kg</span></div><div class="card stat"><span class="lbl">COGS stok terakhir</span><span class="big sm">${rp(p.cogs)}/kg</span></div></div>
+  return `<div class="pd"><div class="pd-l"><div class="card stat"><span class="lbl">Total sales value</span><span class="big sm">${rp(st.val)}</span></div><div class="card stat"><span class="lbl">Total sales qty</span><span class="big sm">${nf(st.qty)} kg</span></div><div class="card stat"><span class="lbl">COGS stok terakhir</span><span class="big sm">${rp(p.cogs)}/kg</span></div></div>
    <div class="card grow"><div class="card-h"><h3>${esc(p.name)} · history PO</h3><div class="row"><button class="btn" data-act="saveNow">Simpan</button><button class="btn primary" data-act="add" data-t="po" data-pid="${pid}">+ Tambah PO baru</button></div></div>
    <div class="bar" style="margin-bottom:12px">${filterSel('po.cust','Semua customer',custOpts(),f.cust)}${filterSel('po.month','Semua bulan PO',months.map(m=>[m,mlab(m)]),f.month)}</div>
    <div class="tbl-wrap"><table><thead><tr>${th('po','cust','Customer')}<th>No PO</th>${th('po','date','Tanggal PO')}${th('po','qty','Qty (kg)','r')}${th('po','price','Harga jual/kg','r')}${th('po','total','Total PO','r')}<th></th></tr></thead><tbody>
@@ -915,11 +946,11 @@ function pagePipe(){
   const est=S.pipeline.filter(p=>['qualified','sample','quotation','negotiation','win'].includes(p.status));
   const nx=S.pipeline.filter(p=>!['win','lost'].includes(p.status)&&daysTo(p.closing)!==null&&daysTo(p.closing)<=3).sort((a,b)=>daysTo(a.closing)-daysTo(b.closing));
   const cd=d=>d<0?`Lewat ${-d} hari`:d===0?'Hari ini':'H-'+d;
-  return `<div class="stack"><div class="card"><div class="card-h"><h3>Pipeline progress</h3><div class="row"><button class="btn" data-act="saveNow">Simpan</button><button class="btn primary" data-act="add" data-t="pipe">+ Tambah pipeline</button></div></div>
-   <div class="kanban" data-keepscroll="pipe">${STAGES.map((s,i)=>{const it=S.pipeline.filter(p=>p.status===s.k);
+  return `<div class="stack"><div class="card"><div class="card-h"><h3>Pipeline progress</h3><div class="row"><button class="btn" data-act="saveNow">Simpan</button><button class="btn" data-act="arsip" title="Lihat pipeline yang diarsipkan">${svg('archive')} Arsip (${S.pipeline.filter(p=>p.archived).length})</button><button class="btn primary" data-act="add" data-t="pipe">+ Tambah pipeline</button></div></div>
+   <div class="kanban" data-keepscroll="pipe">${STAGES.map((s,i)=>{const it=S.pipeline.filter(p=>p.status===s.k&&!p.archived);
     return `<div class="col st"><div class="col-h"><button class="t" data-act="stageInfo" data-k="${s.k}"><span class="dot" style="background:${s.c}"></span>${s.l}</button><span class="pill">${it.length}</span></div><div class="week-sub">${s.p}% · ${compact(sum(it.map(p=>p.value)))}</div>
-    <div class="col-body">${it.map(p=>`<div class="kc pc"><span class="t" title="${esc(cn(p.customerId))}">${esc(cn(p.customerId))}</span><span class="s" title="${esc(p.product)}">${esc(p.product)}</span><span class="t num" style="font-size:13px">${rp(p.value)}</span><span class="n">${p.closing?'Closing '+fdate(p.closing):'&nbsp;'}</span>
-     <div class="tools"><div class="row" style="gap:4px"><button class="mini" data-act="mv" data-id="${p.id}" data-d="-1" ${i===0?'disabled':''} aria-label="Geser kiri">◀</button><button class="mini" data-act="mv" data-id="${p.id}" data-d="1" ${i===STAGES.length-1?'disabled':''} aria-label="Geser kanan">▶</button></div><div class="row" style="gap:4px;flex-wrap:nowrap">${miniTools('pipe',p.id)}</div></div></div>`).join('')}</div></div>`}).join('')}</div></div>
+    <div class="col-body">${it.map(p=>`<div class="kc pc" data-pid="${p.id}"><span class="t" title="${esc(cn(p.customerId))}">${esc(cn(p.customerId))}</span><span class="s" title="${esc(p.product)}">${esc(p.product)}</span><span class="t num" style="font-size:13px">${rp(p.value)}</span><span class="n">${p.closing?'Closing '+fdate(p.closing):'&nbsp;'}</span>
+     <div class="tools"><div class="row" style="gap:4px"><button class="mini" data-act="mv" data-id="${p.id}" data-d="-1" ${i===0?'disabled':''} aria-label="Geser kiri">◀</button><button class="mini" data-act="mv" data-id="${p.id}" data-d="1" ${i===STAGES.length-1?'disabled':''} aria-label="Geser kanan">▶</button></div><div class="row" style="gap:4px;flex-wrap:nowrap">${(s.k==='win'||s.k==='lost')?`<button class="mini icon" data-act="arch" data-id="${p.id}" aria-label="Arsipkan" title="Arsipkan">${svg('archive')}</button>`:''}${miniTools('pipe',p.id)}</div></div></div>`).join('')}</div></div>`}).join('')}</div></div>
    <div class="grid g2"><div class="card stat"><span class="lbl">Total estimated potential sales value (Qualified – Win)</span><span class="big">${rp(sum(est.map(p=>p.value)))}</span><span class="muted">${est.length} peluang · tertimbang probability ${rp(sum(est.map(p=>p.value*STG[p.status].p/100)))}</span></div>
    <div class="card"><div class="card-h"><h3>Next action (H-3 target closing)</h3></div><div class="nxlist">${nx.map(p=>{const d=daysTo(p.closing);return `<div class="notif"><span class="sev ${d<0?'bad':'warn'}"></span><div style="flex:1;min-width:0"><b>${esc(cn(p.customerId))}</b> · ${esc(p.product)}<div class="muted">${esc(p.next)||'Belum ada next action'}</div></div><span class="pill ${d<0?'bad':'warn'}">${cd(d)}</span></div>`}).join('')||empty('Belum ada yang mendekati target closing.')}</div></div></div></div>`}
 function formPipe(id){const p=id?S.pipeline.find(v=>v.id===id):{status:'lead'};
@@ -930,7 +961,7 @@ function formPipe(id){const p=id?S.pipeline.find(v=>v.id===id):{status:'lead'};
    <div class="frow">${fld('Status',sel('status',STAGES.map(s=>[s.k,s.l]),p.status))}${fld('Probability',`<input id="prob" readonly value="${STG[p.status].p}%">`)}${fld('Target closing date',inp('closing',p.closing||'','type="date"'))}</div>
    ${fld('Next action',inp('next',p.next||''))}`,
    {wide:true,onMount:f=>{f.status.onchange=()=>$('#prob').value=STG[f.status.value].p+'%';const calc=()=>{$('#pval').value=Math.round(N(f.qty.value)*N(f.price.value))};f.qty.oninput=calc;f.price.oninput=calc},onDelete:id?()=>delEntity('pipe',id):null,
-    onSubmit:fd=>{upsert('pipeline',{id:id||uid(),customerId:fd.get('customerId'),product:fd.get('product').trim(),qty:N(fd.get('qty')),price:fd.get('price')===''?'':N(fd.get('price')),value:N(fd.get('value')),status:fd.get('status'),closing:fd.get('closing'),next:fd.get('next').trim()});touch();render()}})}
+    onSubmit:fd=>{upsert('pipeline',{id:id||uid(),customerId:fd.get('customerId'),product:fd.get('product').trim(),qty:N(fd.get('qty')),price:fd.get('price')===''?'':N(fd.get('price')),value:N(fd.get('value')),status:fd.get('status'),closing:fd.get('closing'),next:fd.get('next').trim(),archived:(fd.get('status')==='win'||fd.get('status')==='lost')&&!!(id&&(S.pipeline.find(v=>v.id===id)||{}).archived)});touch();render()}})}
 
 /* ----- Outstanding ----- */
 function pageOut(){const f=UI.out;
@@ -1019,7 +1050,9 @@ function openTodo(){
 
 /* ====================== Render ====================== */
 const PAGES={dash:pageDash,budget:pageBudget,cust:pageCust,prod:pageProd,act:pageAct,pipe:pagePipe,out:pageOut,over:pageOver,samp:pageSamp,calc:pageCalc};
-function renderSide(){$('#side').innerHTML=`<div class="brand"><i>CRM</i>Adit CRM</div>`+NAV.map(([k,l])=>`<button class="nav" data-act="go" data-page="${k}" data-nav="${k}">${svg(k)}<span>${l}</span></button>`).join('')}
+function brandKurs(){const el=$('#brandKurs');if(!el)return;const c=jget('crm_adit_kurs');
+  el.textContent=c&&c.r?`USD/IDR ${nf(c.r.USD,0)} · ${c.date===iso(new Date())?'hari ini':fdate(c.date)}`:'USD/IDR belum dimuat'}
+function renderSide(){$('#side').innerHTML=`<div class="brand"><i>CRM</i><div class="bt"><b>Adit CRM</b><small id="brandKurs"></small></div></div>`+NAV.map(([k,l])=>`<button class="nav" data-act="go" data-page="${k}" data-nav="${k}">${svg(k)}<span>${l}</span></button>`).join('');brandKurs()}
 function render(){
   const ae=document.activeElement,aid=ae&&ae.id,ss=ae&&ae.selectionStart,se=ae&&ae.selectionEnd;
   const keep={};$$('[data-keepscroll]').forEach(e=>keep[e.dataset.keepscroll]=e.scrollLeft);
@@ -1041,6 +1074,11 @@ function render(){
 
 /* ====================== Events ====================== */
 const ACTIONS={
+ arch:d=>{const p=S.pipeline.find(x=>x.id===d.id);if(p){p.archived=true;touch();render()}},
+ unarch:d=>{const p=S.pipeline.find(x=>x.id===d.id);if(p){p.archived=false;touch();render();ACTIONS.arsip()}},
+ arsip:()=>{const r=S.pipeline.filter(p=>p.archived);
+  modal('Arsip pipeline',r.length?`<div class="stack" style="gap:8px">${r.map(p=>{const g=STG[p.status]||STG.lead;return `<div class="notif"><span class="sev" style="background:${g.c}"></span><div style="flex:1;min-width:0"><b>${esc(cn(p.customerId))}</b> · ${esc(p.product)}<div class="muted">${g.l} · ${rp(p.value)}${p.closing?' · Closing '+fdate(p.closing):''}</div></div><button type="button" class="btn sm" data-act="unarch" data-id="${p.id}">Kembalikan</button><button type="button" class="mini icon danger" data-act="del" data-t="pipe" data-id="${p.id}" aria-label="Hapus" title="Hapus">${svg('trash')}</button></div>`}).join('')}</div>`:'<p class="muted">Belum ada pipeline yang diarsipkan. Arsipkan kartu di kolom Win atau Lost agar tidak tampil di papan.</p>',{wide:true,foot:'<button type="button" class="btn primary" data-act="closeModal">Tutup</button>'})},
+ goPipe:d=>{UI.page='pipe';$('#main').scrollTop=0;render();const el=document.querySelector(`[data-pid="${d.id}"]`);if(el){el.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});el.classList.add('flash');setTimeout(()=>el.classList.remove('flash'),2200)}},
  go:d=>{UI.page=d.page;if(d.page==='act')UI.scrollNow=true;$('#main').scrollTop=0;render()},
  goClose:d=>{closeModal();ACTIONS.go(d)},
  closeModal,
@@ -1052,7 +1090,7 @@ const ACTIONS={
  del:(d)=>delEntity(d.t,d.id),
  sort:d=>{const s=UI[d.p].sort;if(s.k===d.k)s.dir=s.dir==='asc'?'desc':'asc';else{s.k=d.k;s.dir='asc'}render()},
  selProd:d=>{UI.prod.sel=d.id;UI.po.cust='';UI.po.month='';render()},
- mv:d=>{const p=S.pipeline.find(x=>x.id===d.id);const i=STAGES.findIndex(s=>s.k===p.status)+N(d.d);if(i>=0&&i<STAGES.length){p.status=STAGES[i].k;touch();render()}},
+ mv:d=>{const p=S.pipeline.find(x=>x.id===d.id);const i=STAGES.findIndex(s=>s.k===p.status)+N(d.d);if(i>=0&&i<STAGES.length){p.status=STAGES[i].k;if(p.status!=='win'&&p.status!=='lost')p.archived=false;touch();render()}},
  stageInfo:d=>{const s=STG[d.k];modal(s.l,`<div class="stack" style="gap:12px"><div><div class="lbl">Aktivitas</div><div>${esc(s.act)}</div></div><div><div class="lbl">Status PO</div><div>${esc(s.po)}</div></div><div><div class="lbl">Probability</div><div class="big sm">${s.p}%</div></div></div>`,{foot:'<button type="button" class="btn" data-act="closeModal">Tutup</button>',noFocus:true})},
  addContact:()=>$('#contacts').insertAdjacentHTML('beforeend',contactBlock()),
  addPhone:(d,el)=>el.closest('.cblock').querySelector('.phones').insertAdjacentHTML('beforeend',phoneRow()),
@@ -1161,13 +1199,13 @@ async function loadWeather(){
   finally{wxBusy=false}}
 
 async function loadKurs(){
-  const box=$('#lKurs'),cache=jget('crm_adit_kurs');
+  const box=$('#lKurs'),cache=jget('crm_adit_kurs');brandKurs();
   const draw=(r,note)=>{box.innerHTML=[['USD',r.USD],['CNY',r.CNY],['EUR',r.EUR]].map(([k,v])=>`<div><span>${k}</span><strong>${nf(v,0)}</strong></div>`).join('')+`<small>${note}</small>`};
   const today=iso(new Date());
   if(cache&&cache.date===today){draw(cache.r,'IDR · hari ini');return}
   if(cache)draw(cache.r,'IDR · '+fdate(cache.date));else box.innerHTML='<small>Memuat kurs…</small>';
   try{const j=await fetchJ('https://open.er-api.com/v6/latest/USD');if(j.result!=='success')throw 0;const x=j.rates;
-    const o={USD:x.IDR,CNY:x.IDR/x.CNY,EUR:x.IDR/x.EUR};jset('crm_adit_kurs',{date:today,r:o});draw(o,'IDR · hari ini')}
+    const o={USD:x.IDR,CNY:x.IDR/x.CNY,EUR:x.IDR/x.EUR};jset('crm_adit_kurs',{date:today,r:o});draw(o,'IDR · hari ini');brandKurs()}
   catch(e){if(!cache)box.innerHTML='<small>Kurs belum bisa dimuat. Periksa koneksi internet.</small>'}}
 
 function initClockFace(){
@@ -1211,7 +1249,7 @@ function showLock(){$('#lock').hidden=false;$('#app').hidden=true;$('#pw').value
 async function unlock(){
   $('#lock').hidden=true;$('#app').hidden=false;clearInterval(clockT);clearInterval(lockT);
   try{sessionStorage.setItem('crm_unlocked','1')}catch(e){}
-  render();if(cfg.url&&!unlock.done){unlock.done=true;await pullSheet(true);render()}}
+  render();loadKurs();if(cfg.url&&!unlock.done){unlock.done=true;await pullSheet(true);render()}}
 $('#unlockForm').addEventListener('submit',e=>{e.preventDefault();
   if($('#pw').value===PASSWORD)unlock();
   else{const b=$('#pwBox');$('#lockMsg').textContent='Kata sandi belum tepat.';b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');$('#pw').select()}});
