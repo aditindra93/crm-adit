@@ -323,7 +323,11 @@ tfoot td{font-weight:650;border-top:1px solid var(--line);border-bottom:0}
 .iq tr.cat td{background:var(--accent-soft);font-size:12px;letter-spacing:.03em;text-transform:uppercase}
 .iq tr.cat td.s1,.iq tr.cat td.s2{background:var(--surface);background-image:linear-gradient(var(--accent-soft),var(--accent-soft))}
 .iq .pn{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.iq .pn>span:first-child{overflow:hidden;text-overflow:ellipsis}
+.iq .pn{justify-content:flex-start;gap:7px}
+.iq .pn .nm{overflow:hidden;text-overflow:ellipsis}
+.iq .mini.xs{width:20px;height:20px;min-width:0;min-height:0;padding:0;border-radius:6px;box-shadow:var(--sh-xs);display:grid;place-items:center}
+.iq .mini.xs svg{width:11px;height:11px}
+.iq th.sortable{cursor:pointer;user-select:none}
 .iq td.ic{padding:3px 4px}
 .iq td.ic input{width:100%;text-align:right;padding:7px 8px;border-radius:10px;font-variant-numeric:tabular-nums;box-shadow:var(--sh-in-sm);-moz-appearance:textfield}
 .iq td.ic input::-webkit-outer-spin-button,.iq td.ic input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
@@ -759,6 +763,7 @@ function saveNow(){return pushSheet(true)}
 /* ====================== UI state & helpers ====================== */
 const UI={page:'dash',bud:'value',
  cust:{q:'',status:'',seg:'',fin:'',sort:'az'},
+ inq:{sort:'name'},
  prod:{sel:null,q:'',sort:'name'},po:{cust:'',month:'',sort:{k:'date',dir:'desc'}},
  out:{cust:'',status:'',sort:{k:'cust',dir:'asc'}},over:{cust:'',age:'',sort:{k:'due',dir:'asc'}},samp:{cust:'',status:'',sort:{k:'due',dir:'asc'}},
  calc:{cogs:'',extras:[{n:'Freight & handling',v:''},{n:'Bea masuk & pajak',v:''}],margin:'',price:''},scrollNow:true};
@@ -802,7 +807,7 @@ const th=(p,k,l,cls='')=>{const s=UI[p].sort;return `<th class="sortable ${cls} 
 const filterSel=(path,label,opts,val)=>`<select data-bind="${path}" id="f-${path.replace('.','-')}" aria-label="${label}"><option value="">${label}</option>${opts.map(o=>{const [v,l]=Array.isArray(o)?o:[o,o];return `<option value="${esc(v)}" ${String(v)===String(val)?'selected':''}>${esc(l)}</option>`}).join('')}</select>`;
 const rowTools=(t,id)=>`<td class="acts"><button class="btn icon" data-act="edit" data-t="${t}" data-id="${id}" aria-label="Edit" title="Edit">${svg('edit')}</button><button class="btn icon danger" data-act="del" data-t="${t}" data-id="${id}" aria-label="Hapus" title="Hapus">${svg('trash')}</button></td>`;
 const miniTools=(t,id)=>`<button class="mini icon" data-act="edit" data-t="${t}" data-id="${id}" aria-label="Edit" title="Edit">${svg('edit')}</button><button class="mini icon danger" data-act="del" data-t="${t}" data-id="${id}" aria-label="Hapus" title="Hapus">${svg('trash')}</button>`;
-const custCell=id=>{const c=S.customers.find(x=>x.id===id);return c?`<b>${esc(c.name)}</b>${c.entity?` <span class="pill">${esc(c.entity)}</span>`:''}`:'<span class="muted">(customer dihapus)</span>'};
+const custCell=id=>{const c=S.customers.find(x=>x.id===id);return c?(c.entity&&c.entity!=='Perorangan'?`<b>${esc(c.name)}, ${esc(c.entity)}</b>`:`<b>${esc(c.name)}</b>${c.entity?` <span class="pill">${esc(c.entity)}</span>`:''}`):'<span class="muted">(customer dihapus)</span>'};
 const brief=(t,n=80)=>{const x=String(t||'').replace(/\s+/g,' ').trim();return x.length>n?x.slice(0,n).trimEnd()+'…':x};
 const ROLES=['R&D','Purchasing','Finance','Director/Owner'];
 let BUD=null;
@@ -929,20 +934,20 @@ const cmpId=(a,b)=>String(a).localeCompare(String(b),'id',{sensitivity:'base'});
 function iqProds(){return S.inqProducts.slice().sort((a,b)=>cmpId(a.category,b.category)||cmpId(a.name,b.name))}
 function pageInq(){
   const custs=S.customers.slice().sort((a,b)=>cmpId(a.name,b.name)),prods=iqProds(),m=iqMap();
-  const cats=[...new Set(prods.map(p=>p.category))];
+  const cats=[...new Set(prods.map(p=>p.category))],so=UI.inq.sort;
   const val=(c,p)=>{const q=m[iqKey(c,p)];return q?q.qty:0};
   const rt=p=>sum(custs.map(c=>val(c.id,p.id)));
+  if(so!=='name')prods.sort((a,b)=>cmpId(a.category,b.category)||(so==='desc'?rt(b)-rt(a):rt(a)-rt(b))||cmpId(a.name,b.name));
   const grand=sum(prods.map(rt));
-  const head=`<thead><tr class="h1"><th class="s1">Product</th><th class="s2 r">Total qty (kg)</th>${custs.map(c=>`<th class="cc" title="${esc(fullName(c))}"><span>${esc(fullName(c))}</span></th>`).join('')}</tr>
+  const head=`<thead><tr class="h1"><th class="s1">Product</th><th class="s2 r sortable ${so!=='name'?'on '+(so==='desc'?'desc':'asc'):''}" data-act="iqSort" title="Urutkan per kategori: terbesar, terkecil, lalu abjad" role="button" tabindex="0">Total qty (kg)</th>${custs.map(c=>`<th class="cc" title="${esc(fullName(c))}"><span>${esc(fullName(c))}</span></th>`).join('')}</tr>
    <tr class="h2"><th class="s1" colspan="2">Status</th>${custs.map(c=>`<th class="cc"><span class="pill ${c.status==='existing'?'acc':''}">${c.status==='existing'?'existing':'prospecting'}</span></th>`).join('')}</tr></thead>`;
   const body=cats.map(cat=>{const ps=prods.filter(p=>p.category===cat);
     return `<tr class="cat"><td class="s1"><b>${esc(cat)}</b></td><td class="s2 r num"><b data-cs="${esc(cat)}">${nf(sum(ps.map(rt)))}</b></td>${custs.map(()=>'<td class="catfill"></td>').join('')}</tr>`+
-    ps.map(p=>`<tr><td class="s1"><div class="pn"><span title="${esc(p.name)}">${esc(p.name)}</span><span class="row" style="gap:4px;flex:none;flex-wrap:nowrap"><button class="mini icon" data-act="inqEdit" data-id="${p.id}" aria-label="Edit produk" title="Edit">${svg('edit')}</button><button class="mini icon danger" data-act="inqDel" data-id="${p.id}" aria-label="Hapus produk" title="Hapus">${svg('trash')}</button></span></div></td>
+    ps.map(p=>`<tr><td class="s1"><div class="pn"><span class="row" style="gap:3px;flex:none;flex-wrap:nowrap"><button class="mini icon xs" data-act="inqEdit" data-id="${p.id}" aria-label="Edit produk" title="Edit">${svg('edit')}</button><button class="mini icon xs danger" data-act="inqDel" data-id="${p.id}" aria-label="Hapus produk" title="Hapus">${svg('trash')}</button></span><span class="nm" title="${esc(p.name)}">${esc(p.name)}</span></div></td>
       <td class="s2 r num" data-rt="${p.id}">${nf(rt(p))}</td>${custs.map(c=>{const v=val(c.id,p.id);return `<td class="ic"><input type="number" min="0" step="any" inputmode="decimal" data-iq="${c.id}|${p.id}" value="${v||''}" aria-label="${esc(p.name)} untuk ${esc(fullName(c))} (kg per bulan)"></td>`}).join('')}</tr>`).join('')}).join('');
-  const foot=`<tfoot><tr><td class="s1"><b>Total kebutuhan customer</b></td><td class="s2 r num"><b data-gt>${nf(grand)}</b></td>${custs.map(c=>`<td class="r num"><b data-ct="${c.id}">${nf(sum(prods.map(p=>val(c.id,p.id))))}</b></td>`).join('')}</tr></tfoot>`;
   return `<div class="fit-page"><div class="grid g3"><div class="card stat"><span class="lbl">Customer</span><span class="big sm">${custs.length}</span></div><div class="card stat"><span class="lbl">Produk</span><span class="big sm">${prods.length}</span></div><div class="card stat"><span class="lbl">Total inquiry per bulan</span><span class="big sm"><span data-gt2>${nf(grand)}</span> kg</span></div></div>
    <div class="card grow"><div class="card-h"><h3>Product per customer <span class="muted" style="font-weight:500">· inquiry per bulan (kg)</span></h3><div class="row"><button class="btn" data-act="saveNow">Simpan</button><button class="btn primary" data-act="inqAdd">+ Tambah produk</button></div></div>
-   ${custs.length&&prods.length?`<div class="tbl-wrap iqwrap" data-keepscroll="iq"><table class="iq">${head}<tbody>${body}</tbody>${foot}</table></div>`:empty(custs.length?`Belum ada produk. <button class="link" data-act="inqSeed">Muat daftar produk standar</button> atau tambah satu per satu.`:'Belum ada customer. Tambahkan customer di tab Data Customer, kolomnya muncul otomatis di sini.')}</div></div>`}
+   ${custs.length&&prods.length?`<div class="tbl-wrap iqwrap" data-keepscroll="iq"><table class="iq">${head}<tbody>${body}</tbody></table></div>`:empty(custs.length?`Belum ada produk. <button class="link" data-act="inqSeed">Muat daftar produk standar</button> atau tambah satu per satu.`:'Belum ada customer. Tambahkan customer di tab Data Customer, kolomnya muncul otomatis di sini.')}</div></div>`}
 function iqRefresh(){
   const custs=S.customers,prods=S.inqProducts,m=iqMap(),val=(c,p)=>{const q=m[iqKey(c,p)];return q?q.qty:0};
   const rt={};prods.forEach(p=>rt[p.id]=sum(custs.map(c=>val(c.id,p.id))));
@@ -1149,6 +1154,7 @@ function render(){
 
 /* ====================== Events ====================== */
 const ACTIONS={
+ iqSort:()=>{const u=UI.inq;u.sort=u.sort==='name'?'desc':u.sort==='desc'?'asc':'name';render()},
  inqAdd:()=>formInqProd(),
  inqEdit:d=>formInqProd(d.id),
  inqDel:d=>{const p=S.inqProducts.find(x=>x.id===d.id);if(p)ask(`Hapus produk <b>${esc(p.name)}</b> beserta seluruh angka inquiry-nya?`,()=>{S.inqProducts=S.inqProducts.filter(x=>x.id!==d.id);S.inquiries=S.inquiries.filter(q=>q.productId!==d.id);touch();render()})},
